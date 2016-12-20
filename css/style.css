@@ -19,35 +19,43 @@ html {
     border-radius: 0.5em;
     box-shadow: 0 1em 8em rgba(black, 0.35);
     
-    &__left-panel {
+    
+}
+
+.material-color-picker__left-panel {
         z-index: 1;
     }
     
-    &__right-panel {
+.material-color-picker__right-panel{
         position: relative;
         flex-grow: 1;
         overflow: hidden;
     }
-}
 
-.color-selector { // this whole chunk could be done better/smarter
+.color-selector { 
     @include list-reset;
     display: flex;
     flex-direction: column;
     padding: 1em 0;
     border-right: 0.25em solid #E0E0E0;
     
-    input[type='radio'] {
+    
+} 
+
+ input[type='radio'] {
         display: none;
     }
-    
+    li{
+        list-style-type: none;
+    }
     label {
         position: relative;
         display: inline-block;
         padding: 0.75em 1.5em;
         cursor: pointer;
-        
-        &:before {
+}
+
+    label:before {
             content: '';
             display: inline-block;
             vertical-align: middle;
@@ -55,8 +63,8 @@ html {
             background-color: currentColor;
             border-radius: 50%;
         }
-        
-        &:after {
+
+        label:after {
             content: '';
             position: absolute;
             top: 50%;
@@ -69,14 +77,13 @@ html {
             
             transition: padding 250ms;
         }
-    }
+       
     
-    input[type='radio']:checked + label:after {
+     input[type='radio']:checked + label:after {
         padding: 1em;
     }
-} // end sucky chunk
 
-.color-palette-wrapper {
+.cpw{
     position: absolute;
     top: 0;
     right: 0;
@@ -89,10 +96,12 @@ html {
     flex-direction: column;
     padding: 1.5em;
     
-    &.js-active {
+    
+}
+
+.js-active {
         transform: translateX(0);
     }
-}
 
 .color-palette-header {
     display: flex;
@@ -109,7 +118,20 @@ html {
     flex-direction: column;
     flex-grow: 1;
     
-    &__item {
+    
+}
+
+.copied-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    opacity: 0;
+    transition: all 250ms;
+
+    
+}
+.color-palette__item {
         position: relative;
         display: flex;
         align-items: center;
@@ -124,22 +146,13 @@ html {
         transition: transform 250ms;
         cursor: pointer;
         
-        &:hover {
+        
+    }
+    .color-palette__item:hover {
             transform: scale(1.05);
         }
-    }
-}
 
-.copied-indicator {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    opacity: 0;
-    transition: all 250ms;
-
-    &.js-copied {
+   .js-copied {
         transform: translate(-50%, -50%);
         opacity: 0.75;
     }
-}

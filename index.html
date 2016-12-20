@@ -24,7 +24,7 @@
             </ol>
         </div>
         <div class="material-color-picker__right-panel" data-bind="foreach: materialColors">
-            <div class="color-palette-wrapper" data-bind="css: { 'js-active': selectedColor() === color }">
+            <div class="cpw" data-bind="css: { 'js-active': selectedColor() === color }">
                 <h2 class="color-palette-header" data-bind="text: color"></h2>
                 <ol class="color-palette" data-bind="foreach: variations">
                     <li id="clipboardItem" class="color-palette__item" data-bind="attr: { 'data-clipboard-text': hex }, style: { 'background-color': hex }">
